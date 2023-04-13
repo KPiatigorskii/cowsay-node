@@ -4,12 +4,16 @@
 // If it's a weekend, print a message saying "It's the weekend!"
 pipeline{
     agent any
+    tools{
+        nodejs: 'node-19.9.0'
+    }
     stages{
         stage('Build') {
             steps {
                 dir("${env.WORKSPACE}/code"){
                 sh 'pwd'
                 sh 'npm install'
+                sh 'nvm install 14.17'
                 }
             }
         }
