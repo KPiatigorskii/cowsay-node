@@ -13,7 +13,6 @@ pipeline{
                 dir("${env.WORKSPACE}/code"){
                 sh 'pwd'
                 sh 'npm install'
-                sh 'nvm install 14.17'
                 }
             }
         }
