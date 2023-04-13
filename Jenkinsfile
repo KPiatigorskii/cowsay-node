@@ -17,7 +17,7 @@ pipeline{
             steps {
                 withSonarQubeEnv('sonarqube-10.0') {
                     script {
-                        //def scannerHome = tool 'sonar-scanner'
+                        def scannerHome = tool 'sonar-scanner'
                         sh "${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=sqp_d5e3d1e77ebf594ada6967f151eccea68a78d599 \
                             -Dsonar.sources=/"
