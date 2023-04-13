@@ -4,29 +4,20 @@
 // If it's a weekend, print a message saying "It's the weekend!"
 pipeline{
     agent any
+    tools {
+        sonarqubeScanner 'SonarQube'
+    }
     stages{
-        stage("Prints a message to the console, your name + whatever you want"){
-            steps{
-                echo "Kosta, you forgot all about jenkins! HOW DARE YOU???"
+        stage('Build') {
+            steps {
+                sh cd code
+                sh 'npm install'
+                sh 'npm run build'
             }
         }
-        stage("build with sonar"){
-            steps{
-                withSonarQubeEnv('SonarQube') {
-                    sh 'sonar-scanner'
-                }
-            }
-        }
-        stage("Checks if the current day is a weekday or weekend"){
-            steps{
-                script {
-                    def dayOfWeek = sh(returnStdout: true, script: 'date +%u').trim().toInteger()
-                    if (dayOfWeek > 5) {
-                        echo "It's the weekend!"
-                    } else {
-                        echo "It's a weekday!"
-                    }
-                }
+        stage('Code analysis') {
+            steps {
+                sh 'sonar-scanner'
             }
         }
     }
