@@ -9,6 +9,8 @@ pipeline{
             steps {
                 sh 'ls'
                 sh 'cd code/'
+                sh 'ls'
+                sh 'pwd'
                 sh 'npm install'
                 sh 'npm run build'
             }
