@@ -10,7 +10,6 @@ pipeline{
                 dir("${env.WORKSPACE}/code"){
                 sh 'pwd'
                 sh 'npm install'
-                sh 'npm run build'
                 }
             }
         }
