@@ -10,6 +10,11 @@ pipeline{
                 echo "Kosta, you forgot all about jenkins! HOW DARE YOU???"
             }
         }
+        stage("build with sonar"){
+            withSonarQubeEnv('SonarQube') {
+                sh 'sonar-scanner'
+            }
+        }
         stage("Checks if the current day is a weekday or weekend"){
             steps{
                 script {
