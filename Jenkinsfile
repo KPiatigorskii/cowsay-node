@@ -7,12 +7,11 @@ pipeline{
     stages{
         stage('Build') {
             steps {
-                sh 'ls'
-                sh 'cd code/'
-                sh 'ls'
+                dir("${env.WORKSPACE}/code"){
                 sh 'pwd'
                 sh 'npm install'
                 sh 'npm run build'
+                }
             }
         }
         stage('SonarQube analysis') {
