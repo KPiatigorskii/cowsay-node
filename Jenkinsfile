@@ -5,7 +5,7 @@
 pipeline{
     agent any
     tools{
-        nodejs: '19.9.0'
+        nodejs 'node-19.9.0'
     }
     stages{
         stage('Build') {
