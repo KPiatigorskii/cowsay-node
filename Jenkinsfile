@@ -4,9 +4,6 @@
 // If it's a weekend, print a message saying "It's the weekend!"
 pipeline{
     agent any
-    tools {
-        sonarqubeScanner 'SonarQube'
-    }
     stages{
         stage('Build') {
             steps {
