@@ -11,8 +11,10 @@ pipeline{
             }
         }
         stage("build with sonar"){
-            withSonarQubeEnv('SonarQube') {
-                sh 'sonar-scanner'
+            steps{
+                withSonarQubeEnv('SonarQube') {
+                    sh 'sonar-scanner'
+                }
             }
         }
         stage("Checks if the current day is a weekday or weekend"){
