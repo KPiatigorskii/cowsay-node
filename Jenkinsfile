@@ -20,7 +20,7 @@ pipeline{
                         def scannerHome = tool 'SonarQubeScanner-4.8'
                         sh "${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=sqp_d5e3d1e77ebf594ada6967f151eccea68a78d599 \
-                            -Dsonar.sources=/"
+                            -Dsonar.sources=/${env.WORKSPACE}/code"
                     }
                 }
             }
